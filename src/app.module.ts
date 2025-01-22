@@ -3,6 +3,11 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { UserModule } from './user/user.module';
+import { PetshopModule } from './petshop/petshop.module';
+import { ClienteModule } from './cliente/cliente.module';
+import { ServicoModule } from './servico/servico.module';
+import { AgendamentoModule } from './agendamento/agendamento.module';
+import { PagamentoModule } from './pagamento/pagamento.module';
 
 @Module({
   imports: [
@@ -20,6 +25,11 @@ import { UserModule } from './user/user.module';
       autoLoadEntities: true,
     }),
     UserModule,
+    PetshopModule,
+    ClienteModule,
+    ServicoModule,
+    AgendamentoModule,
+    PagamentoModule,
   ],
   controllers: [AppController],
   providers: [AppService],
