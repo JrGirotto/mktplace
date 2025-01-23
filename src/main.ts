@@ -8,7 +8,7 @@ async function bootstrap() {
 
   const config = new DocumentBuilder()
     .setTitle('Petshop API')
-    .setDescription('API para um petshop')
+    .setDescription('API para petshop')
     .setVersion('1.0')
     .addTag('petshop')
     .build();
