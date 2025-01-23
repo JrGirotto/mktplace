@@ -24,7 +24,7 @@ export class PetshopService {
     return petshop;
   }
 
-  async viewPetshop(id: string): Promise<Petshop> {
+  async findOnePetshop(id: string): Promise<Petshop> {
     const petshop = await this.petshopRepository.findOneBy({ id: id });
     if (!petshop) {
       throw new Error('Petshop não encontrado');

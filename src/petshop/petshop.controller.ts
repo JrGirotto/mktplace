@@ -19,7 +19,7 @@ export class PetshopController {
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.petshopService.viewPetshop(id);
+    return this.petshopService.findOnePetshop(id);
   }
 
   @Patch(':id')

@@ -1,22 +1,26 @@
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import { Agendamento } from 'src/agendamento/entities/agendamento.entity';
+import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
 
-@Entity('clientes')
+@Entity('cliente')
 export class Cliente {
     @PrimaryGeneratedColumn('uuid')
     id: string;
 
     @Column()
-    nome: string;
+    nome_cliente: string;
 
     @Column({ unique: true })
-    cpf: string;
+    cpf_cliente: string;
 
     @Column()
-    email: string;
+    email_cliente: string;
 
     @Column()
-    telefone: string;
+    telefone_cliente: string;
 
     @Column()
-    endereco: string;
+    endereco_cliente: string;
+
+    @OneToMany(() => Agendamento, (agendamento) => agendamento.cliente)
+    agendamento: Agendamento[];
 }

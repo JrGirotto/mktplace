@@ -1,7 +1,6 @@
 import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
 import { AgendamentoService } from './agendamento.service';
 import { CreateAgendamentoDto } from './dto/create-agendamento.dto';
-import { UpdateAgendamentoDto } from './dto/update-agendamento.dto';
 
 @Controller('agendamento')
 export class AgendamentoController {
@@ -9,26 +8,21 @@ export class AgendamentoController {
 
   @Post()
   create(@Body() createAgendamentoDto: CreateAgendamentoDto) {
-    return this.agendamentoService.create(createAgendamentoDto);
+    return this.agendamentoService.createAgendamento(createAgendamentoDto);
   }
 
   @Get()
   findAll() {
-    return this.agendamentoService.findAll();
+    return this.agendamentoService.findAllAgendamento();
   }
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.agendamentoService.findOne(+id);
-  }
-
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updateAgendamentoDto: UpdateAgendamentoDto) {
-    return this.agendamentoService.update(+id, updateAgendamentoDto);
+    return this.agendamentoService.findOneAgendamento(id);
   }
 
   @Delete(':id')
   remove(@Param('id') id: string) {
-    return this.agendamentoService.remove(+id);
+    return this.agendamentoService.removeAgendamento(id);
   }
 }
