@@ -5,30 +5,30 @@ import { UpdatePetshopDto } from './dto/update-petshop.dto';
 
 @Controller('petshop')
 export class PetshopController {
-  constructor(private readonly petshopService: PetshopService) {}
+  constructor(private readonly petshopService: PetshopService) { }
 
   @Post()
-  create(@Body() createPetshopDto: CreatePetshopDto) {
-    return this.petshopService.create(createPetshopDto);
+  async create(@Body() createPetshopDto: CreatePetshopDto) {
+    return await this.petshopService.createPetshop(createPetshopDto);
   }
 
   @Get()
   findAll() {
-    return this.petshopService.findAll();
+    return this.petshopService.findAllPetshop();
   }
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.petshopService.findOne(+id);
+    return this.petshopService.viewPetshop(id);
   }
 
   @Patch(':id')
   update(@Param('id') id: string, @Body() updatePetshopDto: UpdatePetshopDto) {
-    return this.petshopService.update(+id, updatePetshopDto);
+    return this.petshopService.updatePetshop(id, updatePetshopDto);
   }
 
   @Delete(':id')
   remove(@Param('id') id: string) {
-    return this.petshopService.remove(+id);
+    return this.petshopService.removePetshop(id);
   }
 }

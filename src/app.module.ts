@@ -8,17 +8,18 @@ import { ClienteModule } from './cliente/cliente.module';
 import { ServicoModule } from './servico/servico.module';
 import { AgendamentoModule } from './agendamento/agendamento.module';
 import { PagamentoModule } from './pagamento/pagamento.module';
+import { ConfigModule } from '@nestjs/config';
 
 @Module({
   imports: [
-
+    ConfigModule.forRoot(),
     TypeOrmModule.forRoot({
       type: 'postgres',
       host: process.env.DATABASE_HOST,
-      port: parseInt(<string>process.env.DATABASE_PORT),
+      //port: parseInt(<string>process.env.DATABASE_PORT),
+      port: Number(process.env.DATABASE_PORT),
       password: 'mvp',
       username: 'postgres',
-      //entities: [User],
       database: process.env.DATABASE_NAME,
       synchronize: true,
       logging: true,
