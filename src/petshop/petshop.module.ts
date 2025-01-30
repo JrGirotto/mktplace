@@ -7,9 +7,9 @@ import { PetshopServicoService } from './services/petshop-servico.service';
 import { PetshopService } from './services/petshop.service';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([Petshop])],
-  controllers: [PetshopController, PetshopServicoController],
-  providers: [PetshopService, PetshopServicoService],
+  imports: [TypeOrmModule.forFeature([Petshop]), PetshopModule],
+  controllers: [PetshopController],
+  providers: [PetshopService],
   exports: [TypeOrmModule],
 })
 export class PetshopModule {}

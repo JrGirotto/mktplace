@@ -1,7 +1,6 @@
 import { Agendamento } from 'src/agendamento/entities/agendamento.entity';
 import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
 import { OneToMany } from 'typeorm';
-import { PetshopServico } from './petshop-servico.entity';
 import { Servico } from 'src/servico/entities/servico.entity';
 
 @Entity()
@@ -32,3 +31,4 @@ export class Petshop {
 
 
 }
+

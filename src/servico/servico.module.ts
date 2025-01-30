@@ -8,5 +8,6 @@ import { Servico } from './entities/servico.entity';
   imports: [TypeOrmModule.forFeature([Servico])],
   controllers: [ServicoController],
   providers: [ServicoService],
+  exports: [TypeOrmModule]
 })
 export class ServicoModule {}

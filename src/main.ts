@@ -10,7 +10,7 @@ async function bootstrap() {
     .setTitle('Petshop API')
     .setDescription('API para petshop')
     .setVersion('1.0')
-    .addTag('petshop')
+    .addTag('API')
     .build();
 
   const document = SwaggerModule.createDocument(app, config);
