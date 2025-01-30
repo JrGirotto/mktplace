@@ -8,9 +8,10 @@ import { Petshop } from 'src/petshop/entities/petshop.entity';
 import { Servico } from 'src/servico/entities/servico.entity';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([Agendamento, Cliente, Petshop, Servico])],
+  imports: [TypeOrmModule.forFeature([Agendamento]), Cliente],
   controllers: [AgendamentoController],
   providers: [AgendamentoService],
+  exports: [TypeOrmModule]
 })
 export class AgendamentoModule {}
 

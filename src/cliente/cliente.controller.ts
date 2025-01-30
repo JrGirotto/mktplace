@@ -5,7 +5,7 @@ import { UpdateClienteDto } from './dto/update-cliente.dto';
 
 @Controller('cliente')
 export class ClienteController {
-  constructor(private readonly clienteService: ClienteService) {}
+  constructor(private clienteService: ClienteService) { }
 
   @Post()
   create(@Body() createClienteDto: CreateClienteDto) {

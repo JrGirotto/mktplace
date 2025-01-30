@@ -1,21 +1,17 @@
-import { Entity, Column, PrimaryGeneratedColumn, OneToMany, ManyToOne, Timestamp } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
+import { TipoServico } from '../servico.enum';
+import { PetshopServico } from 'src/petshop/entities/petshop-servico.entity';
 
-@Entity('servico')
+@Entity()
 export class Servico {
     @PrimaryGeneratedColumn('uuid')
     id: string;
 
-    @Column({ name: 'servico_fixo', nullable: false })
-    servico_fixo: string;
+    @Column({ type: 'enum', enum: TipoServico, unique: true })
+    nome: TipoServico;
 
-    @Column({ name: 'servico_extra', nullable: false })
-    servico_extra: string;
-
-// @Column({ name: 'data_hora_disponivel', nullable: false })
-// data_hora_disponivel: Timestamp;
-
-//@ManyToOne(() => Petshop, petshop => petshop.servicos)
-//petshop: Petshop;
+    @OneToMany(() => PetshopServico, (petshopServico) => petshopServico.servico)
+    petshops: PetshopServico[];
 
 
 }

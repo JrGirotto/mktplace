@@ -1,33 +1,29 @@
 import { Cliente } from "src/cliente/entities/cliente.entity";
 import { Petshop } from "src/petshop/entities/petshop.entity";
-import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
-import { TypeOrmModule } from "@nestjs/typeorm";
+import { Servico } from "src/servico/entities/servico.entity";
+import { Column, Entity, JoinColumn, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 
-
-enum Status_agendamento {
-    'agendado',
-    'cancelado',
-    'realizado'
-}
 
 @Entity('agendamento')
 export class Agendamento {
+
     @PrimaryGeneratedColumn('uuid')
-    id: string;
+    id_agendamento: string;
 
     @Column({ type: 'timestamp', name: 'data_hora_agendamento' })
     data_hora_agendamento: Date;
 
 
     @Column({ name: 'status' })
-    status_agendamento?: Status_agendamento;
+    status: number;
 
     // 1 Cliente pode ter vários Agendamentos
-    @ManyToOne(() => Cliente, (cliente) => cliente.agendamento, { eager: true })
-    cliente: Cliente;
+    //@ManyToOne(() => Cliente, (cliente) => cliente.agendamento, { eager: true, onDelete: 'CASCADE' })
+    //cliente: Cliente;
 
     // 1 Petshop pode ter vários Agendamentos
-    @ManyToOne(() => Petshop, (petshop) => petshop.agendamento, { eager: true })
-    petshop: Petshop;
+    //@ManyToOne(() => Petshop, (petshop) => petshop.agendamento, { eager: true, onDelete: 'CASCADE' })
+    //petshop: Petshop;
+
 
 }

@@ -1,12 +1,8 @@
+import { Cliente } from "src/cliente/entities/cliente.entity";
+import { Petshop } from "src/petshop/entities/petshop.entity";
+import { Servico } from "src/servico/entities/servico.entity";
+
 export class CreateAgendamentoDto {
 
-    readonly id?: string;
 
-    readonly data_hora_agendamento: Date;
-
-    readonly id_petshop: string;
-
-    readonly id_cliente: string;
-
-    readonly status: boolean;
 }

@@ -1,10 +1,10 @@
 import { Agendamento } from 'src/agendamento/entities/agendamento.entity';
 import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
 import { OneToMany } from 'typeorm';
+import { PetshopServico } from './petshop-servico.entity';
 import { Servico } from 'src/servico/entities/servico.entity';
-import e from 'express';
 
-@Entity('petshop')
+@Entity()
 export class Petshop {
     @PrimaryGeneratedColumn('uuid')
     id: string;
@@ -27,11 +27,8 @@ export class Petshop {
     @Column({ name: 'conta_bancaria', nullable: false })
     conta_bancaria_petshop: string;
 
-    @OneToMany(() => Agendamento, (agendamento) => agendamento.petshop)
-    agendamento: Agendamento[];
+    @OneToMany(() => Servico, (Servico) => Servico.petshops)
+    servicos: Servico[];
 
-
-    //@OneToMany(() => Servico, (servico) => servico.servico_fixo, { eager: true })
-    //servicos: Servico[];
 
 }

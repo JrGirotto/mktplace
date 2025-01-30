@@ -1,9 +1,9 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { DeleteResult, Repository } from 'typeorm';
-import { Petshop } from './entities/petshop.entity';
-import { CreatePetshopDto } from './dto/create-petshop.dto';
-import { UpdatePetshopDto } from './dto/update-petshop.dto';
+import { CreatePetshopDto } from '../dto/create-petshop.dto';
+import { UpdatePetshopDto } from '../dto/update-petshop.dto';
+import { Petshop } from '../entities/petshop.entity';
 
 @Injectable()
 export class PetshopService {
@@ -44,7 +44,7 @@ export class PetshopService {
     return await this.petshopRepository.save(petshop);
   }
 
-  removePetshop(id: string): Promise<DeleteResult> {
-    return this.petshopRepository.delete(id);
+  removePetshop(id_petshop: string): Promise<DeleteResult> {
+    return this.petshopRepository.delete(id_petshop);
   }
 }

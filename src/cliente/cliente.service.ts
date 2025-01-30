@@ -8,8 +8,7 @@ import { Cliente } from './entities/cliente.entity';
 @Injectable()
 export class ClienteService {
   constructor(
-    @InjectRepository(Cliente)
-    private readonly clienteRepository: Repository<Cliente>,
+    @InjectRepository(Cliente) private readonly clienteRepository: Repository<Cliente>,
   ) { }
 
 
@@ -44,8 +43,7 @@ export class ClienteService {
     return this.clienteRepository.save(cliente);
   }
 
-  removeCliente(id: string): Promise<DeleteResult> {
-    return this.clienteRepository.delete(id);
-
+  removeCliente(id_cliente: string): Promise<DeleteResult> {
+    return this.clienteRepository.delete(id_cliente);
   }
 }

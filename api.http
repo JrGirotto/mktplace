@@ -1,0 +1,35 @@
+GET http://localhost:3000
+
+### Cadastrar Cliente 
+POST http://localhost:3000/cliente
+Content-Type: application/json
+
+{
+    "nome_cliente": "Junior",
+    "cpf_cliente": "1234567",
+    "email_cliente": "jr@gmail.com",
+    "telefone_cliente": "11997779977",
+    "endereco_cliente": "Rua: Edmundo"
+}
+
+### Cadastrar Pet 
+POST http://localhost:3000/pet
+Content-Type: application/json
+
+{
+    "name": "Meg",
+    "especie": "cachorro",
+    "raca": "Caramelo",
+    "clienteId": "479af52c-8ddf-4a32-906f-1b69fe4bde2b"
+}
+
+POST http://localhost:3000/petshop
+Content-Type: application/json
+
+{
+    "nome_cliente": "Junior",
+    "cpf_cliente": "1234567",
+    "email_cliente": "jr@gmail.com",
+    "telefone_cliente": "11997779977",
+    "endereco_cliente": "Rua: Edmundo"
+}

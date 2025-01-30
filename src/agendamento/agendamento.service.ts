@@ -1,9 +1,9 @@
 import { Body, Get, HttpException, HttpStatus, Injectable, Post } from '@nestjs/common';
 import { CreateAgendamentoDto } from './dto/create-agendamento.dto';
-import { UpdateAgendamentoDto } from './dto/update-agendamento.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { DeleteResult, Repository } from 'typeorm';
 import { Agendamento } from './entities/agendamento.entity';
+import { AgendamentoStatus } from './agendamento-status-enum';
 
 @Injectable()
 export class AgendamentoService {
@@ -13,33 +13,37 @@ export class AgendamentoService {
   ) { }
 
 
-  async createAgendamento(@Body() createAgendamentoDto: CreateAgendamentoDto) {
-    return await this.agendamentoRepository.save(createAgendamentoDto);
+  async create(@Body() createAgendamentoDto: CreateAgendamentoDto) {
+    const agendamento = this.agendamentoRepository.create(createAgendamentoDto);
+    agendamento.status = AgendamentoStatus.AGENDADO;
+    return await this.agendamentoRepository.save(agendamento);
   }
 
 
-  async findAllAgendamento(): Promise<Agendamento[]> {
-    const agendamento = await this.agendamentoRepository.find();
-    if (agendamento.length === 0) {
+  async findAll(): Promise<Agendamento[]> {
+    const agendamento = this.agendamentoRepository.find();
+    if ((await agendamento).length === 0) {
       throw new HttpException('Nenhum agendamento encontrado', HttpStatus.NOT_FOUND);
-    }
-    return await agendamento;
-  }
-
-  async findOneAgendamento(id: string): Promise<Agendamento> {
-    const agendamento = await this.agendamentoRepository.findOneBy({ id: id });
-    if (!agendamento) {
-      throw new Error('Agendamento não encontrado');
     }
     return agendamento;
   }
 
-  async removeAgendamento(id: string): Promise<DeleteResult> {
+  async findOne(id: string): Promise<Agendamento> {
+    const agendamento = await this.agendamentoRepository.findOneBy({ id_agendamento: id });
+    if (!agendamento) {
+      throw new HttpException('Agendamento não encontrado', HttpStatus.NOT_FOUND);
+    }
+    return agendamento;
+  }
+
+  async remove(id: string): Promise<DeleteResult> {
     const result = this.agendamentoRepository.delete(id);
     if ((await result).affected === 0) {
       throw new HttpException('Agendamento não encontrado', HttpStatus.NOT_FOUND);
+    } else {
+      throw new HttpException('Agendamento removido com sucesso', HttpStatus.OK);
     }
-    return result;
+
 
   }
 }
