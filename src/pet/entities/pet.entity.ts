@@ -1,5 +1,5 @@
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, OneToMany } from "typeorm";
 import { Cliente } from "src/cliente/entities/cliente.entity";
-import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from "typeorm";
 
 @Entity()
 export class Pet {
@@ -30,4 +30,5 @@ export class Pet {
 
     @ManyToOne(() => Cliente, (cliente) => cliente.pet, { onDelete: 'CASCADE' })
     cliente: Cliente;
+
 }

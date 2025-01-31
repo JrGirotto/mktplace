@@ -26,7 +26,7 @@ export class Petshop {
     @Column({ name: 'conta_bancaria', nullable: false })
     conta_bancaria_petshop: string;
 
-    @OneToMany(() => Servico, (Servico) => Servico.petshops)
+    @OneToMany(() => Servico, (Servico) => Servico.petshop)
     servicos: Servico[];
 
 

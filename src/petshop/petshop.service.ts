@@ -1,16 +1,15 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { DeleteResult, Repository } from 'typeorm';
-import { CreatePetshopDto } from '../dto/create-petshop.dto';
-import { UpdatePetshopDto } from '../dto/update-petshop.dto';
-import { Petshop } from '../entities/petshop.entity';
+import { CreatePetshopDto } from './dto/create-petshop.dto';
+import { UpdatePetshopDto } from './dto/update-petshop.dto';
+import { Petshop } from './entities/petshop.entity';
 
 @Injectable()
 export class PetshopService {
   constructor(
     @InjectRepository(Petshop)
     private readonly petshopRepository: Repository<Petshop>,
-
   ) { }
 
   async createPetshop(createPetshopDto: CreatePetshopDto): Promise<Petshop> {

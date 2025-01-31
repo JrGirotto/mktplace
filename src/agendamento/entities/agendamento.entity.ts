@@ -1,7 +1,4 @@
-import { Cliente } from "src/cliente/entities/cliente.entity";
-import { Petshop } from "src/petshop/entities/petshop.entity";
-import { Servico } from "src/servico/entities/servico.entity";
-import { Column, Entity, JoinColumn, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 
 
 @Entity('agendamento')

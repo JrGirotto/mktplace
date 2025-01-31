@@ -1,38 +1,16 @@
-import { ApiProperty } from "@nestjs/swagger";
-import { UUID } from "crypto";
+import { PartialType } from "@nestjs/mapped-types";
 import { Column } from "typeorm";
-
-export class ServicoFixoDto {
-    @ApiProperty()
-    id: UUID;
-    nome_servico: string;
-    preço_servico: number;
-    duracao_servico: string;
-    disponivel: boolean;
-}
-
-export class ServicoExtraDto {
-    @ApiProperty()
-    id: UUID;
-    nome_servico?: string;
-    preço_servico?: number;
-    duracao_servico?: string;
-    disponivel: boolean;
-} 
+import { TipoServico } from "../servico.enum";
+import { IsNotEmpty } from "class-validator";
 
 export class CreateServicoDto {
-    @Column()
-    nome_servico: string;
 
-    @Column()
-    servico_fixo: string;
+    @IsNotEmpty()
+    @Column({ type: 'array', ['enum']: TipoServico })
+    readonly servicos: Array<TipoServico>;
 
-    @Column({ nullable: true })
-    servico_extra?: string;
+    //@Column({ nome: TipoServico; preco: number; duracao: number; disponivel: boolean }[])
 
-    @Column()
-    preco: number;
 
-    @Column()
-    disponivel: Boolean;
+
 }

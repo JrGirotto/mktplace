@@ -17,19 +17,52 @@ POST http://localhost:3000/pet
 Content-Type: application/json
 
 {
-    "name": "Meg",
+    "nome": "Meg",
     "especie": "cachorro",
     "raca": "Caramelo",
-    "clienteId": "4d946256-99c4-452a-9944-b6d45765d840"
+    "idade": 11,
+    "peso": 20,
+    "cor": "amarela",
+    "microchip": "123456789",
+    "clienteId": "68b8e16f-f87b-40ac-b6fd-094060e6ede6"
 }
+### Buscar pets por cliente UUID
+GET http://localhost:3000/pet/68b8e16f-f87b-40ac-b6fd-094060e6ede6
 
+### Cadastrar Petshop
 POST http://localhost:3000/petshop
 Content-Type: application/json
 
 {
-    "nome_cliente": "Junior",
-    "cpf_cliente": "1234567",
-    "email_cliente": "jr@gmail.com",
-    "telefone_cliente": "11997779977",
-    "endereco_cliente": "Rua: Edmundo"
+    "nome_petshop": "Petshop",
+    "cnpj_petshop": "1234567990",
+    "email_petshop": "petshop2@gmail.com",
+    "telefone_petshop": "11997779977",
+    "endereco_petshop": "Rua: Edmundo",
+    "conta_bancaria_petshop": "pixcontadigital"
 }
+
+### Listar Petshops
+GET http://localhost:3000/petshop
+
+### Cadastrar Serviços
+POST http://localhost:3000/servico/7686924e-279f-4030-be72-64ee4cd7b632
+Content-Type: application/json
+
+[
+   {
+      "nome":"BANHO e TOSA",
+      "preco":50,
+      "duracao":30,
+      "disponivel":true
+   },
+   {
+      "nome":"CONSULTA VETERINÁRIA",
+      "preco":80,
+      "duracao":40,
+      "disponivel":true
+   }
+]
+
+### Listar Serviços
+GET http://localhost:3000/servico

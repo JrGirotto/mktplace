@@ -1,7 +1,8 @@
 import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
-import { CreatePetshopDto } from '../dto/create-petshop.dto';
-import { UpdatePetshopDto } from '../dto/update-petshop.dto';
-import { PetshopService } from '../services/petshop.service';
+import { CreatePetshopDto } from './dto/create-petshop.dto';
+import { UpdatePetshopDto } from './dto/update-petshop.dto';
+import { PetshopService } from './petshop.service';
+
 
 @Controller('petshop')
 export class PetshopController {

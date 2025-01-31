@@ -1,4 +1,3 @@
-import { Agendamento } from 'src/agendamento/entities/agendamento.entity';
 import { Pet } from 'src/pet/entities/pet.entity';
 import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
 
