@@ -2,8 +2,6 @@ import { IsEmail, IsInt, IsNotEmpty, IsString, IsUUID, MinLength } from 'class-v
 
 export class CreatePetshopDto {
 
-    readonly id?: string;
-
     @IsString()
     @MinLength(3, { message: 'Nome tem que ter mais de 3 caracteres.' })
     @IsNotEmpty()

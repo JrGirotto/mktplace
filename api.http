@@ -5,9 +5,9 @@ POST http://localhost:3000/cliente
 Content-Type: application/json
 
 {
-    "nome_cliente": "Junior",
-    "cpf_cliente": "1234567",
-    "email_cliente": "jr@gmail.com",
+    "nome_cliente": "Girotto",
+    "cpf_cliente": "12345679",
+    "email_cliente": "jrgirotto@gmail.com",
     "telefone_cliente": "11997779977",
     "endereco_cliente": "Rua: Edmundo"
 }
@@ -20,7 +20,7 @@ Content-Type: application/json
     "name": "Meg",
     "especie": "cachorro",
     "raca": "Caramelo",
-    "clienteId": "479af52c-8ddf-4a32-906f-1b69fe4bde2b"
+    "clienteId": "4d946256-99c4-452a-9944-b6d45765d840"
 }
 
 POST http://localhost:3000/petshop

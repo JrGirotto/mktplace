@@ -12,6 +12,8 @@ import { Petshop } from './petshop/entities/petshop.entity';
 import { Servico } from './servico/entities/servico.entity';
 import { Pagamento } from './pagamento/entities/pagamento.entity';
 import { ServicoModule } from './servico/servico.module';
+import { AgendamentoModule } from './agendamento/agendamento.module';
+import { PagamentoModule } from './pagamento/pagamento.module';
 
 @Module({
   imports: [
@@ -33,10 +35,8 @@ import { ServicoModule } from './servico/servico.module';
     PetModule,
     PetshopModule,
     ServicoModule,
-    Agendamento,
-
-
-
+    AgendamentoModule,
+    PagamentoModule
   ],
   controllers: [AppController],
   providers: [AppService],

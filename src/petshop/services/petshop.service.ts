@@ -10,6 +10,7 @@ export class PetshopService {
   constructor(
     @InjectRepository(Petshop)
     private readonly petshopRepository: Repository<Petshop>,
+
   ) { }
 
   async createPetshop(createPetshopDto: CreatePetshopDto): Promise<Petshop> {
