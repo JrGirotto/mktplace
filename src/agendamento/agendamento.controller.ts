@@ -1,13 +1,15 @@
 import { Controller, Get, Post, Body, Param, Delete } from '@nestjs/common';
 import { AgendamentoService } from './agendamento.service';
 import { CreateAgendamentoDto } from './dto/create-agendamento.dto';
+import { Agendamento } from './entities/agendamento.entity';
 
 @Controller('agendamento')
 export class AgendamentoController {
   constructor(private readonly agendamentoService: AgendamentoService) {}
 
   @Post()
-  create(@Body() createAgendamentoDto: CreateAgendamentoDto) {
+
+  async create(@Body() createAgendamentoDto: CreateAgendamentoDto): Promise<Agendamento> {
     return this.agendamentoService.create(createAgendamentoDto);
   }
 

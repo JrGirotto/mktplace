@@ -2,6 +2,7 @@ import { Agendamento } from 'src/agendamento/entities/agendamento.entity';
 import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
 import { OneToMany } from 'typeorm';
 import { Servico } from 'src/servico/entities/servico.entity';
+import { HorarioFuncionamento } from 'src/horario-funcionamento/entities/horario_funcionamento.entity';
 
 @Entity()
 export class Petshop {
@@ -28,6 +29,12 @@ export class Petshop {
 
     @OneToMany(() => Servico, (Servico) => Servico.petshop)
     servicos: Servico[];
+
+    @OneToMany(() => Agendamento, (Agendamento) => Agendamento.petshop)
+    agendamento: Agendamento[];
+
+    @OneToMany(() => HorarioFuncionamento, (horario) => horario.petshop, { eager: true })
+    horarios: HorarioFuncionamento[];
 
 
 }

@@ -12,6 +12,9 @@ Content-Type: application/json
     "endereco_cliente": "Rua: Edmundo"
 }
 
+### Buscar clientes
+GET http://localhost:3000/cliente
+
 ### Cadastrar Pet 
 POST http://localhost:3000/pet
 Content-Type: application/json
@@ -66,3 +69,17 @@ Content-Type: application/json
 
 ### Listar Serviços
 GET http://localhost:3000/servico
+
+### Listar Horários de Funcionamento do Petshop por ID
+GET http://localhost:3000/petshop/7686924e-279f-4030-be72-64ee4cd7b632
+
+### Criar Agendamento
+POST http://localhost:3000/agendamento
+Content-Type: application/json
+
+{
+  "cliente_id": "68b8e16f-f87b-40ac-b6fd-094060e6ede6",
+  "petshop_id": "7686924e-279f-4030-be72-64ee4cd7b632",
+  "data_hora_agendamento": "2025-02-06T10:00:00Z"
+}
+

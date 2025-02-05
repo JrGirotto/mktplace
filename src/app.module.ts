@@ -8,6 +8,8 @@ import { ServicoModule } from './servico/servico.module';
 import { AgendamentoModule } from './agendamento/agendamento.module';
 import { PagamentoModule } from './pagamento/pagamento.module';
 import { ClienteModule } from './cliente/cliente.module';
+import { HorarioFuncionamentoService } from './horario-funcionamento/horario-funcionamento.service';
+import { HorarioFuncionamentoController } from './horario-funcionamento/horario-funcionamento.controller';
 
 @Module({
   imports: [
@@ -34,8 +36,8 @@ import { ClienteModule } from './cliente/cliente.module';
     PetshopModule,
     ServicoModule,
   ],
-  controllers: [AppController],
-  providers: [AppService],
+  controllers: [AppController, HorarioFuncionamentoController],
+  providers: [AppService, HorarioFuncionamentoService],
 
 
 })
