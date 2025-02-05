@@ -1,5 +1,6 @@
 export enum AgendamentoStatus {
-    'AGENDADO' = 1,
-    'CANCELADO' = 2,
-    'REALIZADO' = 3,
+    AGENDADO = 'agendado',
+    CANCELADO = 'cancelado',
+    EM_ANDAMENTO = 'em andamento',
+    CONCLUIDO = 'concluido',
 }
